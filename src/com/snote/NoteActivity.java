@@ -1,13 +1,14 @@
 package com.snote;
 
-import android.app.ActionBar;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
-public class NoteActivity extends FragmentActivity {
+
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+
+public class NoteActivity extends SherlockFragmentActivity {
 	ViewPager pager;
-	TabsAdapter tabsAdapter;
+	NotesAdapter tabsAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -15,11 +16,17 @@ public class NoteActivity extends FragmentActivity {
 		setContentView(R.layout.note_activity);
 		pager = (ViewPager)findViewById(R.id.pager);
 		
-		final ActionBar bar = getActionBar();
-        bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        bar.setDisplayOptions(0, ActionBar.DISPLAY_SHOW_TITLE);
-        tabsAdapter = new TabsAdapter(this, pager, bar);
+        //bar.setDisplayOptions(0, ActionBar.DISPLAY_SHOW_TITLE);
+        tabsAdapter = new NotesAdapter(this, pager);
         tabsAdapter.setNoteCount(3);
 	}
 
+	@Override
+    public boolean onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu) {
+
+		com.actionbarsherlock.view.MenuInflater inflater = getSupportMenuInflater();
+		inflater.inflate(R.menu.note_menus, menu);
+				
+		return true;
+	}
 }

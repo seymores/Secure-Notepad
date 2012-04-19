@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Notepad.Theme" parent="Theme.Sherlock.Light">
+        <item name="actionBarStyle">@style/Notepad.ActionBar</item>
+        <item name="android:actionBarStyle">@style/Notepad.ActionBar</item>
+    </style>
+
+    <style name="Notepad.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid">
+        <item name="background">@color/sky</item>
+        <item name="android:background">@color/sky</item>
+    </style>
+
+</resources>

@@ -1,8 +1,5 @@
 package com.snote;
 
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,36 +7,30 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
-public class TabsAdapter extends FragmentPagerAdapter implements
-		ViewPager.OnPageChangeListener, ActionBar.TabListener {
+import com.actionbarsherlock.app.ActionBar.Tab;
+import com.actionbarsherlock.app.ActionBar.TabListener;
 
-	private static final String TAG = "TabsAdapter";
+public class NotesAdapter extends FragmentPagerAdapter implements
+		ViewPager.OnPageChangeListener {
+
+	private static final String TAG = "NotesAdapter";
 	Context activity;
 	ViewPager pager;
-	ActionBar bar;
 	int noteCount = 0;
 
-	public TabsAdapter(FragmentActivity activity, ViewPager pager, ActionBar bar) {
+	public NotesAdapter(FragmentActivity activity, ViewPager pager) {
 		super(activity.getSupportFragmentManager());
 		
 		this.activity = activity;
 		this.pager = pager;
-		this.bar = bar;
 		
 		pager.setAdapter(this);
 		pager.setOnPageChangeListener(this);
-		Log.d(TAG, " init >>>> " + bar);
 	}
 
 	@Override
 	public Fragment getItem(int arg0) {
-		Log.d(TAG, " >>>> " + bar );
-		if (bar == null) return null;
-		Tab tab = bar.newTab();
 		String desc = "Note #" + arg0;
-		tab.setText(desc);
-		tab.setTabListener(this);
-		bar.addTab(tab);
 		return NoteFragment.newInstance(desc);
 	}
 
@@ -70,24 +61,6 @@ public class TabsAdapter extends FragmentPagerAdapter implements
 
 	@Override
 	public void onPageSelected(int arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onTabSelected(Tab tab, FragmentTransaction ft) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onTabReselected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
 		
 	}

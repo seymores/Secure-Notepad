@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/backgroundtile"
     android:orientation="vertical" >
 
     <EditText
         android:id="@+id/text_editor"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:ems="10"
-        android:inputType="textMultiLine" >
+        android:fadeScrollbars="true"
+        android:gravity="top|left"
+        android:hint="Edit me"
+        android:inputType="textMultiLine"
+        android:isScrollContainer="true"
+        android:scrollbars="vertical"
+        android:textColor="#444"
+        android:textSize="18dp" >
 
         <requestFocus />
     </EditText>
+
 
 </LinearLayout>
